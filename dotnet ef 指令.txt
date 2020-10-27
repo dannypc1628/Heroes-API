@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Data Source =localhost;Initial Catalog=AngularTourOfHeroes;Integrated Security=True"  --output-dir Models  Microsoft.EntityFrameworkCore.SqlServer --force
