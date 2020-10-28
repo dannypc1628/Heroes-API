@@ -77,5 +77,21 @@ namespace AngularTourOfHeroesApiDemo.Controllers
             return NoContent();
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteHero(int id)
+        {
+            var hero = await _context.Hero.FindAsync(id);
+
+            if (hero == null)
+            {
+                return NotFound();
+            }
+
+            _context.Hero.Remove(hero);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
     }
 }
