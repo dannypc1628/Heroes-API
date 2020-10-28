@@ -55,7 +55,7 @@ namespace AngularTourOfHeroesApiDemo.Controllers
 
             await _context.Hero.AddAsync(newHero);
             await _context.SaveChangesAsync();
-            return Ok();
+            return CreatedAtAction(nameof(GetHeroById), new {id = newHero.Id},newHero);
         }
 
         [HttpPut("{id}")]
@@ -74,7 +74,7 @@ namespace AngularTourOfHeroesApiDemo.Controllers
 
             originalHero.Name = hero.Name;
             await _context.SaveChangesAsync();
-            return Ok();
+            return NoContent();
         }
 
     }
